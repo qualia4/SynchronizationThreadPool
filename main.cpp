@@ -34,7 +34,7 @@ void generateTasks(vector<int>* stopIDs, TaskQueue* taskQueue, TaskGenerator* ge
         if(elapsed.count() >= 45){
             generated = true;
         }
-        std::this_thread::sleep_for(std::chrono::duration<float>(0.5));
+        std::this_thread::sleep_for(std::chrono::duration<float>(2));
     }
     stopIDs->emplace_back(stopID);
     if(activated){
@@ -65,7 +65,7 @@ int main() {
     auto threadPool = new ThreadPool(4);
     auto stopIDs = new vector<int>;
     thread generator(generateTasks, stopIDs, taskQueue, taskGenerator);
-    std::this_thread::sleep_for(std::chrono::duration<float>(1));
+    std::this_thread::sleep_for(std::chrono::duration<float>(5));
     thread performer(performTasks, taskQueue, threadPool, stopIDs);
     string end;
     cin >> end;

@@ -5,15 +5,8 @@
 class TaskGenerator {
     int idCounter;
 public:
-    TaskGenerator(){
-        idCounter = 0;
-    }
-
-    Task* generateTask(){
-        Task* task = new Task(idCounter);
-        idCounter++;
-        return task;
-    }
+    TaskGenerator();
+    Task* generateTask();
 };
 
 
